@@ -24,8 +24,8 @@ function getCards() {
             console.log('This is article info');
             console.log(response);
             let articleList = [];
-            for (let topic in response.data.articles) {
-                articleList.concat(response.data.articles[topic])
+            for (let key in response.data.articles) {
+                articleList = articleList.concat(response.data.articles[key])
             }
             articleList.forEach(x => {
                 const article = articleMaker(x);
@@ -42,18 +42,21 @@ function getCards() {
 }
 getCards();
 
-function cardMaker(item) {
+function articleMaker(item) {
+    const cardDiv = document.createElement('div');
     const headlineDiv = document.createElement('div');
     const authorDiv = document.createElement('div');
     const imgDiv = document.createElement('div');
     const authorImg = document.createElement('img');
     const authorSpan = document.createElement('span');
 
-    headlineDiv.appendChild(authorDiv);
-    headlineDiv.appendChild(imgDiv);
+    cardDiv.appendChild(headlineDiv);
+    cardDiv.appendChild(authorDiv);
+    authorDiv.appendChild(imgDiv);
     imgDiv.appendChild(authorImg);
-    imgDiv.appendChild(authorSpan);
+    authorDiv.appendChild(authorSpan);
 
+    cardDiv.classList.add('card');
     headlineDiv.classList.add('headline');
     authorDiv.classList.add('author');
     imgDiv.classList.add('img-container');
@@ -62,6 +65,6 @@ function cardMaker(item) {
     authorImg.src = item.authorPhoto;
     authorSpan.textContent = item.authorName;
 
-    return headlineDiv;
+    return cardDiv;
 }
 

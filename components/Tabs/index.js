@@ -17,7 +17,7 @@ function getTabs() {
             const tabInfo = response.data.topics;
             tabInfo.forEach(x => {
                 const tab = tabMaker(x);
-                const thirdDiv = document.querySelector('.tabs');
+                const thirdDiv = document.querySelector('.topics');
                 thirdDiv.appendChild(tab);
             })
         })
@@ -33,7 +33,7 @@ getTabs();
 function tabMaker(item) {
     const topicDiv = document.createElement('div');
 
-    topicDiv.classList.add('topics');
+    topicDiv.classList.add('tab');
 
     topicDiv.textContent = item;
 

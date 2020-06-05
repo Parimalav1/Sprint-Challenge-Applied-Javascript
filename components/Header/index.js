@@ -11,7 +11,7 @@
 // Use your function to create a header
 // and append it to the DOM inside the div.header-container
 
-const theBody = document.querySelector('body');
+
 const secondDiv = document.querySelector('.header-container');
 
 function headerMaker(data) {
@@ -34,6 +34,10 @@ function headerMaker(data) {
 
     return headerdiv;
 }
-// const header = headerMaker(data);
-// secondDiv.appendChild(header);
-// theBody.appendChild(secondDiv);
+let data = {
+    date: 'MARCH 28, 2019',
+    title: 'Lambda Times',
+    temperature: '98°'
+}
+const header = headerMaker(data);
+secondDiv.appendChild(header);
